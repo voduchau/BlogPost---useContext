@@ -5,7 +5,7 @@ const TestContext = React.createContext();
 const reducer = (state,action)=>{
     switch (action.type) {
         case 'addBlog':
-            return [...state,{id:Math.floor(Math.random()*100000),title:`#add Blog ${state.length+1} `}]
+            return [...state,{id:Math.floor(Math.random()*100000),title:action.title,content:action.content}]
         case 'delete':
            return state.filter((item)=>{
                 return item.id !=action.id;
@@ -18,8 +18,8 @@ const reducer = (state,action)=>{
 export const TestProvider = ({children})=>{
     // const [state, dispatch] = useReducer(reducer,{count:0}) 
     const [blog,dispatch] = useReducer(reducer,[])
-    const addBlog = ()=>{
-        dispatch({type:'addBlog'})
+    const addBlog = (title,content)=>{
+        dispatch({type:'addBlog',title:title,content:content})
     }
     const deleteBlog = (id)=>{
         dispatch({type:'delete',id:id})

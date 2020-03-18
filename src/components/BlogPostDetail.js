@@ -11,6 +11,7 @@ const BlogPostDetail = ({navigation,item})=>{
         <View style={styles.viewStyle} >
             <TouchableOpacity onPress={()=>navigation.navigate('ShowDetailBlog',{id:item.id})}>
                 <Text style={styles.titleStyle}  >{item.title}- {item.id}</Text>
+            <Text>{item.content}</Text>
             </TouchableOpacity>
             
             <TouchableOpacity onPress={()=>deleteBlog(item.id)}>

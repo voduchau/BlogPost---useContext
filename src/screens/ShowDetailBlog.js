@@ -11,6 +11,7 @@ const ShowDetailBlog = ({navigation,route}) => {
             <Text style={styles.textStyle}>
                 {blogPost.title} - {blogPost.id}
             </Text>
+        <Text>{blogPost.content}</Text>
         </View>
     );
 };
